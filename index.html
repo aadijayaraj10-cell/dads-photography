@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Through the Lens — Photography</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home">
+        <span class="logo-main">Through the Lens</span>
+        <span class="logo-sub">Photography</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.body.classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="home" class="hero">
+    <div class="hero-media">
+      <!--
+        Replace the src below with your dad's featured landscape photo.
+        Example: src="images/featured-landscape.jpg"
+        The image will be letterboxed / contained — never cropped.
+      -->
+      <img
+        src="images/featured.jpg"
+        alt="Featured landscape photograph"
+        class="hero-img"
+        onerror="this.closest('.hero-media').classList.add('hero-placeholder')"
+      />
+    </div>
+
+    <div class="hero-caption">
+      <p class="hero-label">Featured Work</p>
+      <h1 class="hero-title">Light &amp;<br><em>Landscape</em></h1>
+      <a href="#gallery" class="hero-cta">View Gallery</a>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery" class="gallery-section">
+    <header class="section-header">
+      <span class="section-label">Portfolio</span>
+      <h2>Gallery</h2>
+    </header>
+
+    <div class="gallery-grid">
+      <!--
+        Duplicate / edit these cards to match your images/ folder.
+        The ratio wrappers prevent layout jumps before images load.
+      -->
+      <figure class="gallery-item">
+        <div class="img-wrap ratio-landscape">
+          <img src="images/photo-01.jpg" alt="Landscape photograph 1" loading="lazy" />
+        </div>
+        <figcaption>Untitled I</figcaption>
+      </figure>
+
+      <figure class="gallery-item gallery-item--tall">
+        <div class="img-wrap ratio-portrait">
+          <img src="images/photo-02.jpg" alt="Landscape photograph 2" loading="lazy" />
+        </div>
+        <figcaption>Untitled II</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <div class="img-wrap ratio-landscape">
+          <img src="images/photo-03.jpg" alt="Landscape photograph 3" loading="lazy" />
+        </div>
+        <figcaption>Untitled III</figcaption>
+      </figure>
+
+      <figure class="gallery-item gallery-item--wide">
+        <div class="img-wrap ratio-wide">
+          <img src="images/photo-04.jpg" alt="Landscape photograph 4" loading="lazy" />
+        </div>
+        <figcaption>Untitled IV</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <div class="img-wrap ratio-landscape">
+          <img src="images/photo-05.jpg" alt="Landscape photograph 5" loading="lazy" />
+        </div>
+        <figcaption>Untitled V</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <div class="img-wrap ratio-landscape">
+          <img src="images/photo-06.jpg" alt="Landscape photograph 6" loading="lazy" />
+        </div>
+        <figcaption>Untitled VI</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <div class="about-portrait">
+        <!--
+          Replace with a portrait of your dad:
+          src="images/portrait.jpg"
+        -->
+        <div class="portrait-frame">
+          <img src="images/portrait.jpg" alt="Photographer portrait"
+               onerror="this.closest('.portrait-frame').classList.add('portrait-placeholder')" />
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">About</span>
+        <h2>The Photographer</h2>
+        <p class="about-lead">
+          <!-- Edit this bio -->
+          A lifelong observer of light, shadow, and the quiet drama of the natural world.
+        </p>
+        <p>
+          Based in the heart of the Midwest, he has spent decades wandering landscapes
+          at dusk and dawn — chasing the fleeting moments where light transforms the
+          ordinary into the extraordinary. His work is a meditation on patience, presence,
+          and the beauty hiding in plain sight.
+        </p>
+        <p>
+          Available for fine-art prints and commissioned landscape work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="contact-section">
+    <header class="section-header">
+      <span class="section-label">Get in Touch</span>
+      <h2>Contact</h2>
+    </header>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+      </div>
+      <button type="submit" class="btn-send">Send Message</button>
+      <p class="form-success" id="form-success">Thank you — I'll be in touch soon.</p>
+    </form>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Through the Lens Photography. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
